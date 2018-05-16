@@ -1,0 +1,32 @@
+{
+  "name": "crmoz/zoho-crm-api-v2",
+  "description": "Library for work this API V2 Zoho CRM ",
+  "keywords": [
+    "api"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dinisimys"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ZohoCrmApiV2\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0.0",
+    "illuminate/support": "5.x.x",
+    "crmoz/singleton-classes": "dev-master"
+
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@bitbucket.org:genioteamerp/singleton-classes.git"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
