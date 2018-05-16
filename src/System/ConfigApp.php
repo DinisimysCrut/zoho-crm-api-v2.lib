@@ -7,7 +7,7 @@ class ConfigApp
 {
     private $crmToken = null;
 
-    private $path = 'zoho-crm-api-v2';
+    private $path = 'zoho-crm-api-v2.app';
 
     private static $instance = null;
 
