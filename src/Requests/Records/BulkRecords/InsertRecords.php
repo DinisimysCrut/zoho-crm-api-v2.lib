@@ -1,10 +1,10 @@
 <?php
 namespace ZohoCrmApiV2\Requests\Records\BulkRecords;
 
-use ZohoCrmApiV2\Requests\Records\Categories\BulkRecords;
+use ZohoCrmApiV2\Requests\Records\PostRequest;
 use ZohoCrmApiV2\Response\Records\BulkRecords\InsertRecords as InsertRecordsResponse;
 
-class InsertRecords extends BulkRecords
+class InsertRecords extends PostRequest
 {
 
     private static $instance = null;
@@ -27,8 +27,7 @@ class InsertRecords extends BulkRecords
      * @return InsertRecordsResponse
      */
     public function request() {
-        $this->setMethod('GET');
-        $response = parent::request();
+        $response = parent::requestPost();
         return (InsertRecordsResponse::getInstance()->parser($response));
     }
 
