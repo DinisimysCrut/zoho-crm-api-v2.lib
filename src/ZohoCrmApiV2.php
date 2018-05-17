@@ -3,8 +3,9 @@ namespace ZohoCrmApiV2;
 
 use ZohoCrmApiV2\Requests\Records\BulkRecords\GetRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\SearchRecords;
+use ZohoCrmApiV2\Requests\Records\Records;
 use ZohoCrmApiV2\Requests\Records\SingleRecord\GetRecordById;
-use ZohoCrmApiV2\System\ConfigApp;
+use ZohoCrmApiV2\System\ConfigAppRest;
 
 class ZohoCrmApiV2 {
 
@@ -43,7 +44,7 @@ class ZohoCrmApiV2 {
      */
     public function setToken($token)
     {
-        ConfigApp::getInstance()->setCrmToken($token);
+        ConfigAppRest::getInstance()->setCrmToken($token);
         return $this;
     }
 
@@ -54,39 +55,18 @@ class ZohoCrmApiV2 {
 
     public function getToken()
     {
-        return ConfigApp::getInstance()->getCrmToken();
+        return ConfigAppRest::getInstance()->getCrmToken();
     }
 
     /**
-     * @return GetRecords
+     * @return Records
      */
-    public function getRecords()
+    public function records()
     {
-        return GetRecords::getInstance()
-                ->setModule($this->getModule())
-                ->setToken($this->getToken());
-    }
-
-    /**
-     * @param $idRecord
-     * @return GetRecordById
-     */
-    public function getRecordById($idRecord)
-    {
-        return GetRecordById::getInstance()
-            ->setModule($this->getModule())
-            ->setToken($this->getToken())
-            ->setId($idRecord);
-    }
-
-    /**
-     * @return SearchRecords
-     */
-    public function searchRecords()
-    {
-        return SearchRecords::getInstance()
+        return Records::getInstance()
             ->setModule($this->getModule())
             ->setToken($this->getToken());
     }
+
 
 }

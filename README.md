@@ -61,11 +61,12 @@ $tasks = $this->zohoCrmApiV2->setModule('Tasks')->setToken('token')->getRecords(
 $this->zohoCrmApiV2 = $this->zohoCrmApiV2->setToken('token');
 $tasks = $this->zohoCrmApiV2->setModule('Tasks')->getRecords()->request();
 ```
-Установка токена через класс конфигурации `ZohoCrmApiV2\ConfigApp`:
+Установка токена через класс конфигурации `ZohoCrmApiV2\ConfigAppRest`:
 ```
 use ZohoCrmApiV2\ZohoCrmApiV2;
+use ZohoCrmApiV2\System\ConfigAppRest;
 ...
-ConfigApp::getInstance()->setCrmToken('token');
+ConfigAppRest::getInstance()->setCrmToken('token');
 $tasks = $this->zohoCrmApiV2->setModule('Tasks')->getRecords()->request();
 
 ```

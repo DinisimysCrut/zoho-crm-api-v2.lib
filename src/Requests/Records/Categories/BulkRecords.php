@@ -19,4 +19,5 @@ class BulkRecords extends Request
         $this->setHttpHeaders('If-Modified-Since',$dataTime);
         return $this;
     }
+
 }

@@ -3,7 +3,7 @@
 
 namespace ZohoCrmApiV2\System;
 
-class ConfigApp
+class ConfigAppRest
 {
     private $crmToken = null;
 
