@@ -47,13 +47,24 @@ class Records extends Category
     }
 
     /**
-     * @return GetRecordById
+     * @param $idRecord
+     * @return mixed
      */
-    public function getRecordById()
+    public function getRecordById($idRecord)
     {
         return GetRecordById::getInstance()
             ->setModule($this->getModule())
-            ->setToken($this->getToken());
+            ->setToken($this->getToken())
+            ->setId($idRecord);
     }
+
+    public function InsertRecords($dataRecords)
+    {
+        return GetRecordById::getInstance()
+            ->setModule($this->getModule())
+            ->setToken($this->getToken())
+            ->setData($dataRecords);
+    }
+
 
 }

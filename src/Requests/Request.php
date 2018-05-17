@@ -21,6 +21,8 @@ class Request
         'Authorization' => null
     ];
 
+    protected $httpJson = [];
+
 
     private static $url = "https://www.zohoapis.com/crm/v2/";
 
@@ -43,6 +45,17 @@ class Request
     protected function getHttpClient()
     {
         return GuzzleSingleton::getInstance()->getHttpClient();
+    }
+
+
+    protected function getHttpJson()
+    {
+        return $this->httpJson;
+    }
+
+    protected function setHttpJson($httpJson)
+    {
+        $this->httpJson = $httpJson;
     }
 
     protected function setHttpQuery($key,$value)
@@ -115,7 +128,8 @@ class Request
         return $this->getHttpClient()->request($this->getMethod(),$this->getUrlApi(),[
             'query' => $this->getHttpQuery(),
             'headers' => $this->getHttpHeaders(),
-            'http_errors' => false
+            'http_errors' => false,
+            'json' => $this->getHttpJson(),
         ]);
     }
 }

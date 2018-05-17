@@ -10,6 +10,10 @@ class SingleRecord extends Request
 {
     protected $idRecord;
 
+    /**
+     * @param $idRecord
+     * @return $this
+     */
     public function setId($idRecord)
     {
         $this->setUrlApi($this->getUrlApi() . '/' . $idRecord);
