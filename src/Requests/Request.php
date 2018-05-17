@@ -28,7 +28,8 @@ class Request
 
     protected $urlApi;
 
-    protected function getStaticUrl() {
+    protected function getStaticUrl()
+    {
         return self::$url;
     }
 
@@ -58,7 +59,7 @@ class Request
         $this->httpJson = $httpJson;
     }
 
-    protected function setHttpQuery($key,$value)
+    protected function setHttpQuery($key, $value)
     {
         $this->httpQuery[$key] = $value;
     }
@@ -75,7 +76,7 @@ class Request
         ];
     }
 
-    protected function setHttpHeaders($header,$value)
+    protected function setHttpHeaders($header, $value)
     {
         $this->httpHeaders[$header] = $value;
     }
@@ -89,6 +90,7 @@ class Request
     {
         $this->setUrlApi(self::$url . $module);
         $this->module = $module;
+
         return $this;
     }
 
@@ -116,20 +118,24 @@ class Request
 
     /**
      * @param $token
+     *
      * @return $this
      */
     public function setToken($token)
     {
         $this->httpHeaders['Authorization'] = $token;
+
         return $this;
     }
 
-    public function request() {
-        return $this->getHttpClient()->request($this->getMethod(),$this->getUrlApi(),[
-            'query' => $this->getHttpQuery(),
-            'headers' => $this->getHttpHeaders(),
-            'http_errors' => false,
-            'json' => $this->getHttpJson(),
-        ]);
+    public function request()
+    {
+        return $this->getHttpClient()->request($this->getMethod(), $this->getUrlApi(),
+            [
+                'query'       => $this->getHttpQuery(),
+                'headers'     => $this->getHttpHeaders(),
+                'http_errors' => false,
+                'json'        => $this->getHttpJson(),
+            ]);
     }
 }

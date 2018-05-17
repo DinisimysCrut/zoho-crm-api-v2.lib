@@ -25,8 +25,8 @@ class GetRecordById extends Response
     public function parser($response)
     {
         $response = parent::parser($response);
-        //$data = $response['data'];
-        return $response;
+        $data = $response['data'];
+        return $data;
 
     }
 }
