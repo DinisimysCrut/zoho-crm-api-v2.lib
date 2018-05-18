@@ -16,8 +16,24 @@ class PostRequest extends \ZohoCrmApiV2\Requests\PostRequest
         return $this;
     }
 
-    protected function getModule()
+    public function getModule()
     {
         return $this->module;
     }
+
+    /**
+     * @param $trigger
+     * @return $this
+     */
+    public function setTrigger($trigger)
+    {
+        $this->putData('trigger',[$trigger]);
+        return $this;
+    }
+
+    public function getTrigger()
+    {
+        $this->getData()['trigger'][0];
+    }
+
 }
