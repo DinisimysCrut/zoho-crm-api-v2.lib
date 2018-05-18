@@ -6,6 +6,7 @@ use ZohoCrmApiV2\Requests\Category;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\GetRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\InsertRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\SearchRecords;
+use ZohoCrmApiV2\Requests\Records\BulkRecords\UpdateRecords;
 use ZohoCrmApiV2\Requests\Records\SingleRecord\GetRecordById;
 
 class Records extends Category
@@ -66,6 +67,18 @@ class Records extends Category
     public function insertRecords($dataRecords)
     {
         return InsertRecords::getInstance()
+            ->setModule($this->getModule())
+            ->setToken($this->getToken())
+            ->setData($dataRecords);
+    }
+
+    /**
+     * @param $dataRecords
+     * @return UpdateRecords
+     */
+    public function updateRecords($dataRecords)
+    {
+        return UpdateRecords::getInstance()
             ->setModule($this->getModule())
             ->setToken($this->getToken())
             ->setData($dataRecords);
