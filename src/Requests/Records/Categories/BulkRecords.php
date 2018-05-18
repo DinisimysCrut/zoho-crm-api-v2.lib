@@ -20,4 +20,18 @@ class BulkRecords extends Request
         return $this;
     }
 
+    public function sortBy(string $fieldName)
+    {
+        $this->setHttpQuery('sort_by', $fieldName);
+        return $this;
+        
+    }
+
+    public function sortOrder($order = 'asc')
+    {
+        $this->setHttpQuery('sort_order', $order);
+        return $this;
+        
+    }
+
 }
