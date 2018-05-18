@@ -47,19 +47,19 @@ public function __construct(ZohoCrmApiv2 $zohoCrmApiV2) {
 Получить данные из модуля Tasks:
 ```
 public function getTasks() {
-  $tasks = $this->zohoCrmApiV2->setModule('Tasks')->getRecords()->request();
+  $tasks = $this->zohoCrmApiV2->setModule('Tasks')->records()->getRecords()->request();
 }
 ```
 Изменить токен:
 
 Во время запроса
 ```
-$tasks = $this->zohoCrmApiV2->setModule('Tasks')->setToken('token')->getRecords()->request();
+$tasks = $this->zohoCrmApiV2->setModule('Tasks')->setToken('token')->records()->getRecords()->request();
 ```
 Установка токена для экземпляра `ZohoCrmApiV2`:
 ```
 $this->zohoCrmApiV2 = $this->zohoCrmApiV2->setToken('token');
-$tasks = $this->zohoCrmApiV2->setModule('Tasks')->getRecords()->request();
+$tasks = $this->zohoCrmApiV2->setModule('Tasks')->records()->getRecords()->request();
 ```
 Установка токена через класс конфигурации `ZohoCrmApiV2\ConfigAppRest`:
 ```
@@ -67,6 +67,6 @@ use ZohoCrmApiV2\ZohoCrmApiV2;
 use ZohoCrmApiV2\System\ConfigAppRest;
 ...
 ConfigAppRest::getInstance()->setCrmToken('token');
-$tasks = $this->zohoCrmApiV2->setModule('Tasks')->getRecords()->request();
+$tasks = $this->zohoCrmApiV2->setModule('Tasks')->records->getRecords()->request();
 
 ```
