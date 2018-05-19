@@ -27,6 +27,7 @@ class DeleteRequest extends Request
     public function request()
     {
         $this->setMethod('DELETE');
+        $this->setHttpQuery('ids',explode(',',$this->getIds()));
         return parent::request();
     }
 

@@ -3,6 +3,7 @@
 namespace ZohoCrmApiV2\Requests\Records;
 
 use ZohoCrmApiV2\Requests\Category;
+use ZohoCrmApiV2\Requests\Records\BulkRecords\DeleteRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\GetRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\InsertRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\SearchRecords;
@@ -84,5 +85,12 @@ class Records extends Category
             ->setData($dataRecords);
     }
 
+    public function deleteRecords($arrayIds)
+    {
+        return DeleteRecords::getInstance()
+            ->setModule($this->getModule())
+            ->setToken($this->getToken())
+            ->setIds($arrayIds);
+    }
 
 }
