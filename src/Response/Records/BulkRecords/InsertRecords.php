@@ -5,7 +5,7 @@ namespace ZohoCrmApiV2\Response\Records\BulkRecords;
 use ZohoCrmApiV2\Response\Response;
 
 
-class InsertRecords extends Response
+class InsertRecords extends PostResponse
 {
 
     private static $instance = null;
@@ -23,12 +23,4 @@ class InsertRecords extends Response
     private function __clone() {}
 
     public function __construct() {}
-
-    public function parser($response)
-    {
-        $response = parent::parser($response);
-        $data = $response['data'];
-        return $data;
-
-    }
 }

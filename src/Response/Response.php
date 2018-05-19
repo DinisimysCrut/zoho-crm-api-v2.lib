@@ -7,18 +7,13 @@ use ZohoCrmApiV2\Exceptions\InternalServerErrorException;
 use ZohoCrmApiV2\Exceptions\InvalidJsonException;
 use ZohoCrmApiV2\Exceptions\NoContentException;
 use ZohoCrmApiV2\Exceptions\NoModifiedException;
+use ZohoCrmApiV2\Exceptions\NullResponseException;
 use ZohoCrmApiV2\Exceptions\UnauthorizedException;
 use ZohoCrmApiV2\Exceptions\UndefinedErrorException;
 
 class Response
 {
 
-    /**
-     * @param \GuzzleHttp\Psr7\Response $response
-     * @return array
-     * @throws UnauthorizedException
-     * @throws UndefinedErrorException
-     */
     public function parser($response)
     {
         $statusCode = $response->getStatusCode();
@@ -56,6 +51,16 @@ class Response
             throw new InvalidJsonException();
         }
         return $response;
+    }
+
+    protected function dataOrException($response)
+    {
+        if(empty($response['data']))
+        {
+            throw new NullResponseException();
+        }
+        return $response['data'];
+
     }
 
 

@@ -5,7 +5,7 @@ namespace ZohoCrmApiV2\Response\Records\BulkRecords;
 use ZohoCrmApiV2\Response\Response;
 
 
-class UpdateRecords extends PostResponse
+class DeleteRecords extends PostResponse
 {
 
     private static $instance = null;
@@ -23,5 +23,4 @@ class UpdateRecords extends PostResponse
     private function __clone() {}
 
     public function __construct() {}
-
 }
