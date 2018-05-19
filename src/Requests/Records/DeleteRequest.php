@@ -21,13 +21,13 @@ class DeleteRequest extends Request
 
     public function getIds()
     {
-       return $this->deleteIds;
+        return $this->deleteIds;
     }
 
     public function request()
     {
         $this->setMethod('DELETE');
-        $this->setHttpQuery('ids',explode(',',$this->getIds()));
+        $this->setHttpQuery('ids',implode(',',$this->getIds()));
         return parent::request();
     }
 

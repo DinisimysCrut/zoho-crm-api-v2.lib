@@ -85,6 +85,10 @@ class Records extends Category
             ->setData($dataRecords);
     }
 
+    /**
+     * @param $arrayIds
+     * @return DeleteRecords
+     */
     public function deleteRecords($arrayIds)
     {
         return DeleteRecords::getInstance()
