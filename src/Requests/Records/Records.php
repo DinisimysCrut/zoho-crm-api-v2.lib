@@ -5,6 +5,7 @@ namespace ZohoCrmApiV2\Requests\Records;
 use ZohoCrmApiV2\Requests\Category;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\DeleteRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\GetRecords;
+use ZohoCrmApiV2\Requests\Records\BulkRecords\GetRelatedRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\InsertRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\SearchRecords;
 use ZohoCrmApiV2\Requests\Records\BulkRecords\UpdateRecords;
@@ -95,6 +96,20 @@ class Records extends Category
             ->setModule($this->getModule())
             ->setToken($this->getToken())
             ->setIds($arrayIds);
+    }
+
+    /**
+     * @param $recordId
+     * @param $ralatedList
+     * @return GetRelatedRecords
+     */
+    public function getRelatedRecords($recordId,$ralatedList)
+    {
+        return (new GetRelatedRecords())
+            ->setModule($this->getModule())
+            ->setToken($this->getToken())
+            ->setRecordId($recordId)
+            ->setRelatedList($ralatedList);
     }
 
 }
