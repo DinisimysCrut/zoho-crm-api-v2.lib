@@ -34,4 +34,15 @@ class BulkRecords extends Request
         
     }
 
+    public function page($page)
+    {
+        $this->setHttpQuery('page', $page);
+        return $this;
+    }
+
+    public function perPage($perPage)
+    {
+        $this->setHttpQuery('per_page', $perPage);
+        return $this;
+    }
 }
