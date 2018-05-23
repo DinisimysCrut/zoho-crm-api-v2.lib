@@ -10,29 +10,13 @@ class SearchRecords extends BulkRecords
 
     private $criteria = '';
 
-    private static $instance = null;
-
-
-    public static function getInstance()
-    {
-        if (null === self::$instance)
-        {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
-
-    private function __clone() {}
-
-    private function __construct() {}
-
     public function request()
     {
         $this->setMethod('GET');
         $this->setUrlApi($this->getUrlApi() . '/search');
-        $this->setHttpQuery('criteria',$this->criteria);
+        $this->setHttpQuery('criteria','(' . $this->criteria . ')');
         $response = parent::request();
-        return (SearchRecordsResponse::getInstance()->parser($response));
+        return ((new SearchRecordsResponse())->parser($response));
     }
 
 

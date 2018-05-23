@@ -34,7 +34,7 @@ class Records extends Category
      */
     public function searchRecords()
     {
-        return SearchRecords::getInstance()
+        return (new SearchRecords())
             ->setModule($this->getModule())
             ->setToken($this->getToken());
     }
@@ -44,7 +44,7 @@ class Records extends Category
      */
     public function getRecords()
     {
-        return GetRecords::getInstance()
+        return (new GetRecords())
             ->setModule($this->getModule())
             ->setToken($this->getToken());
     }
@@ -55,7 +55,7 @@ class Records extends Category
      */
     public function getRecordById($idRecord)
     {
-        return GetRecordById::getInstance()
+        return (new GetRecordById())
             ->setModule($this->getModule())
             ->setToken($this->getToken())
             ->setId($idRecord);
@@ -67,7 +67,7 @@ class Records extends Category
      */
     public function insertRecords($dataRecords)
     {
-        return InsertRecords::getInstance()
+        return (new InsertRecords())
             ->setModule($this->getModule())
             ->setToken($this->getToken())
             ->setData($dataRecords);
@@ -79,7 +79,7 @@ class Records extends Category
      */
     public function updateRecords($dataRecords)
     {
-        return UpdateRecords::getInstance()
+        return (new UpdateRecords())
             ->setModule($this->getModule())
             ->setToken($this->getToken())
             ->setData($dataRecords);
@@ -91,7 +91,7 @@ class Records extends Category
      */
     public function deleteRecords($arrayIds)
     {
-        return DeleteRecords::getInstance()
+        return (new DeleteRecords())
             ->setModule($this->getModule())
             ->setToken($this->getToken())
             ->setIds($arrayIds);

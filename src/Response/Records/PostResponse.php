@@ -1,6 +1,6 @@
 <?php
 
-namespace ZohoCrmApiV2\Response\Records\BulkRecords;
+namespace ZohoCrmApiV2\Response\Records;
 
 
 use ZohoCrmApiV2\Exceptions\BadResponseException;
@@ -9,21 +9,6 @@ use ZohoCrmApiV2\Response\Response;
 class PostResponse extends Response
 {
 
-    private static $instance = null;
-
-
-    public static function getInstance()
-    {
-        if (null === self::$instance)
-        {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
-
-    private function __clone() {}
-
-    public function __construct() {}
 
     public function parser($response)
     {
