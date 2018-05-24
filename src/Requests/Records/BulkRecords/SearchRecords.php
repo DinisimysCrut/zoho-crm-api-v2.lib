@@ -43,7 +43,7 @@ class SearchRecords extends BulkRecords
     public function where($field,$value)
     {
         if($this->criteria != '') {
-            $this->criteria = ' and ';
+            $this->criteria .= ' and ';
         }
         $this->criteria .= "($field:equals:$value)";
         return $this;
