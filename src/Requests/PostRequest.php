@@ -48,7 +48,6 @@ class PostRequest extends Request
     {
         $this->setMethod('POST');
         $this->setHttpJson($this->getData());
-
         return parent::request();
     }
 
